@@ -167,7 +167,7 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
       ${shader}
 
       fragColor = vec4(color, opacity);
-      fragColor.rgb *= fragColor.a*1.8;
+      fragColor.rgb *= fragColor.a;
         }`}
       uniforms={uniforms}
       maxFps={60}
