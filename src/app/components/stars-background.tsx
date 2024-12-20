@@ -26,9 +26,9 @@ interface StarBackgroundProps {
 }
 
 export const StarsBackground: React.FC<StarBackgroundProps> = ({
-  starDensity = 0.0001,
+  starDensity = 0.0002,
   allStarsTwinkle = true,
-  twinkleProbability = 2,
+  twinkleProbability = 50,
   minTwinkleSpeed = 1,
   maxTwinkleSpeed = 2,
   className,
@@ -137,7 +137,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={cn("h-full w-full absolute inset-0", className)}
+      className={cn("h-full w-full absolute inset-0 -z-10", className)}
     />
   );
 };
