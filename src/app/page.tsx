@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/HeroSection";
 import { ShootingStars } from "@/app/components/shooting-stars";
