@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
-    
-    if (process.env.KEY1 !== process.env.KEY2) {
-      process.exit(1);
-    }
 
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
