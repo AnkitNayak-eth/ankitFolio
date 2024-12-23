@@ -53,31 +53,31 @@ export function CallToAction() {
 
   return (
     <div
-      className=" flex flex-col justify-center items-center container pb-16 lg:pb-24"
+      className=" flex flex-col justify-center items-center container pb-16 lg:pb-24 overflow-x-hidden"
       style={{ transform: "translateY(-100px)" }}
       id="contact"
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full"
         style={{
-          width: "400px",
-          height: "400px",
+          maxWidth: "500px",
+          maxHeight: "500px",
           transform: "translateY(180px)",
         }}
         width="1000"
         height="1000"
       ></canvas>
 
+
       <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
         <div className="py-8 px-10 text-center relative">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl">
-                Let&apos; Create something amazing together.
+                Let's Create something amazing together.
               </h2>
               <p className="text-sm mt-2 md:text-base">
-                Ready to bring your next project to life? Let&apos; connect and
+                Ready to bring your next project to life? Let's connect and
                 discuss how I can help you achieve your goals.
               </p>
             </div>
