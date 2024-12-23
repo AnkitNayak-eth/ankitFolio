@@ -3,11 +3,10 @@ import nextShare from "@/assets/images/nextShare.png";
 import aura from "@/assets/images/aura.png";
 import llama from "@/assets/images/llama.png";
 import Image from "next/image";
-import CheckIcon from "@/assets/icons/check-circle.svg";
-import ArrowUp from "@/assets/icons/arrow-up-right.svg";
-import { SectionHeader } from "@/app/components/SectionHeader";
-import { Card } from "@/app/components/Card";
-import { CardSpotlight } from "@/app/components/card-spotlight";
+import { FaRegCircleCheck } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { SectionHeader } from "@/components/SectionHeader";
+import { Card } from "@/components/Card";
 
 const portfolioProjects = [
   {
@@ -32,7 +31,7 @@ const portfolioProjects = [
       { title: "Implemented URL shortening and QR code generation for easy sharing." },
       { title: "Enabled file uploads up to 100MB with automatic expiration within 24 hours." },
     ],
-    link: "https://next-shareit.vercel.app/",
+    link: "https://next-shareit.vercel.",
     option:"Visit Live WebApp",
     image: nextShare,
   },
@@ -58,7 +57,7 @@ const portfolioProjects = [
       { title: "Built interactive chat feature using Next.js, and TailwindCSS." },
       { title: "Achieved performance on par with GPT-4.o, enhancing AI versatility." },
     ],
-    link: "https://llama-ai.vercel.app/",
+    link: "https://llama-ai.vercel.",
     option:"Visit Live WebApp",
     image: llama,
   },
@@ -80,7 +79,7 @@ export const ProjectsSection = () => {
               className="after:pointer-events-none sticky"
               style={{ top: `calc(64px + ${projectIndex * 60}px` }}
             >
-              <CardSpotlight className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20">
+              <div className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-16 relative">
                   <div className="lg:pb-16">
                     <div className="inline-flex uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
@@ -98,7 +97,7 @@ export const ProjectsSection = () => {
                           key={index} 
                           className="flex gap-2 text-sm md:text-base text-white/50"
                         >
-                          <CheckIcon className="size-5 md:size-6" />
+                          <FaRegCircleCheck />
                           <span>{result.title}</span>
                         </li>
                       ))}
@@ -106,7 +105,7 @@ export const ProjectsSection = () => {
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       <button className="bg-white text-black h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
                         <span>{project.option}</span>
-                        <ArrowUp className="size-4" />
+                        <FaExternalLinkAlt />
                       </button>
                       
                     </a>
@@ -119,7 +118,7 @@ export const ProjectsSection = () => {
                     />
                   </div>
                 </div>
-              </CardSpotlight>
+              </div>
             </Card>
           ))}
         </div>

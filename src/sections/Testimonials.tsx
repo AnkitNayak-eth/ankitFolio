@@ -1,5 +1,5 @@
-import { Card } from "@/app/components/Card";
-import { SectionHeader } from "@/app/components/SectionHeader";
+import { Card } from "@/components/Card";
+import { SectionHeader } from "@/components/SectionHeader";
 import Georgie from "@/assets/images/Georgie.jpg";
 import BL3ED from "@/assets/images/BL3ED.jpg";
 import Onur from "@/assets/images/Onur.jpg";

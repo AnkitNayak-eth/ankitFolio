@@ -1,8 +1,7 @@
-import { useRef } from "react";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/HeroSection";
-import { ShootingStars } from "@/app/components/shooting-stars";
-import { StarsBackground } from "@/app/components/stars-background";
+import { ShootingStars } from "@/components/shooting-stars";
+import { StarsBackground } from "@/components/stars-background";
 import {ProjectsSection} from "@/sections/Projects";
 import { TapeSection } from "@/sections/TapeSection";
 import { TestimonialsSection } from "@/sections/Testimonials";
@@ -12,7 +11,7 @@ import { Footer } from "@/sections/Footer";
 export default function Home() {
   return (
     <>
-    <div className="relative dark:bg-grid-white/[0.1]">
+    <div className="relative dark:bg-grid-white/[0.2]">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <Header />
       <HeroSection />

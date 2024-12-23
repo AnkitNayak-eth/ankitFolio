@@ -1,10 +1,8 @@
  "use client"
 import avatar from "@/assets/images/avatar.gif";
 import Image from "next/image";
-import ArrowDown from "@/assets/icons/arrow-down.svg";
-import StarIcon from "@/assets/icons/star.svg";
-import SparkleIcon from "@/assets/icons/sparkle.svg";
-import { HeroOrbit } from "@/app/components/HeroOrbit";
+import { FaArrowDown } from "react-icons/fa";
+import { HeroOrbit } from "@/components/HeroOrbit";
 import { FaReact } from "react-icons/fa";
 import { FaJs } from "react-icons/fa";
 import { RiNextjsLine } from "react-icons/ri";
@@ -13,7 +11,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { FaNode } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { FaLinux } from "react-icons/fa";
-import { FlipWords } from "@/app/components/flip-words";
+import { FlipWords } from "@/components/flip-words";
 import { footerLinks } from "./Footer";
 import { useState } from "react";
 
@@ -47,7 +45,7 @@ export const HeroSection = () => {
 
   return (
     <div className="py-32 md:py-48 lg:py-60 relative overflow-x-clip" id="home">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] mt-32">
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] lg:mt-32">
         <div className="size-[700px] hero-ring"></div>
         <div className="size-[900px] hero-ring"></div>
         <div className="size-[1100px] hero-ring"></div>
@@ -131,7 +129,7 @@ export const HeroSection = () => {
           <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
             <button onClick={handleScrollToAbout} className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:translate-y-2 transition duration-300">
               <span className="font-semibold">Explore My Work</span>
-              <ArrowDown className="size-4" />
+              <FaArrowDown />
             </button>
             <button onClick={handleCopy} className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/70 hover:text-gray-900">
               <span>👋</span>

@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { CardSpotlight } from "@/app/components/card-spotlight";
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import createGlobe from "cobe";
 
 export function CallToAction() {
@@ -59,32 +58,29 @@ export function CallToAction() {
       id="contact"
     >
       <canvas
-        ref={canvasRef}
-        style={{
-          width: "500px",
-          height: "500px",
-          transform: "translateY(180px)",
-        }}
-        width="1000"
-        height="1000"
-      ></canvas>
+  ref={canvasRef}
+  className="w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] transform translate-y-[180px]"
+  width="1000"
+  height="1000"
+></canvas>
+
 
       <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
         <div className="py-8 px-10 text-center relative">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl">
-                Let's Create something amazing together.
+                Let&apos; Create something amazing together.
               </h2>
               <p className="text-sm mt-2 md:text-base">
-                Ready to bring your next project to life? Let's connect and
+                Ready to bring your next project to life? Let&apos; connect and
                 discuss how I can help you achieve your goals.
               </p>
             </div>
             <div>
               <button onClick={handleCopy} className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
                 <span className="font-semibold">{buttonText}</span>
-                <ArrowUpRightIcon className="size-4" />
+                <FaExternalLinkAlt/>
               </button>
             </div>
           </div>

@@ -1,44 +1,43 @@
-import { Card } from "@/app/components/Card";
-import { SectionHeader } from "@/app/components/SectionHeader";
-import StarIcon from "@/assets/icons/star.svg";
-import BookImage from "@/assets/images/book-cover.png";
+import { Card } from "@/components/Card";
+import { SectionHeader } from "@/components/SectionHeader";
+import cv from "@/assets/images/cv.jpg";
 import Image from "next/image";
-import JavaScriptIcon from "@/assets/icons/square-js.svg";
-import Html5Icon from "@/assets/icons/square-js.svg";
-import Css3Icon from "@/assets/icons/css3.svg";
-import ReactIcon from "@/assets/icons/react.svg";
-import ChromeIcon from "@/assets/icons/chrome.svg";
-import GitHubIcon from "@/assets/icons/github.svg";
+import { FaReact } from "react-icons/fa";
+import { FaJs } from "react-icons/fa";
+import { RiNextjsLine } from "react-icons/ri";
+import { FaHtml5 } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaNode } from "react-icons/fa";
 import MapImage from "@/assets/images/map.png";
 import avatar from "@/assets/images/avatar.gif";
-import { CardHeader } from "@/app/components/CardHeader";
-import { ToolBoxItems } from "@/app/components/ToolBoxItems";
-import { PinContainer } from "@/app/components/3d-pin";
+import { CardHeader } from "@/components/CardHeader";
+import { ToolBoxItems } from "@/components/ToolBoxItems";
+import { PinContainer } from "@/components/3d-pin";
 
 const toolBoxItems = [
   {
     title: "JavaScript",
-    iconType: JavaScriptIcon,
+    iconType: FaReact,
   },
   {
     title: "HTML5",
-    iconType: Html5Icon,
+    iconType: FaJs,
   },
   {
     title: "CSS3",
-    iconType: Css3Icon,
+    iconType: RiNextjsLine,
   },
   {
     title: "React",
-    iconType: ReactIcon,
+    iconType: FaHtml5,
   },
   {
     title: "Chrome",
-    iconType: ChromeIcon,
+    iconType: RiTailwindCssFill,
   },
   {
     title: "GitHub",
-    iconType: GitHubIcon,
+    iconType: FaNode,
   },
 ];
 
@@ -90,6 +89,9 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <PinContainer
                 title="Download my CV"
+                href="/updatedCV.pdf"
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="h-[320px] w-[320px]"
               >
                 <CardHeader
@@ -97,7 +99,7 @@ export const AboutSection = () => {
                   description="Download my CV here."
                 />
                 <div className="w-40 mx-auto mt-2 md:mt-0">
-                  <Image src={BookImage} alt="Book Cover" />
+                  <Image src={cv} alt="cv" />
                 </div>
               </PinContainer>
             </Card>

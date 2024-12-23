@@ -1,4 +1,4 @@
-import StarIcon from "@/assets/icons/star.svg";
+import { BsStars } from "react-icons/bs";
 import { Fragment } from "react";
 
 const words = [
@@ -28,7 +28,7 @@ export const TapeSection = ({ direction = 'left' }) => {
                     <span className="text-gray-950 uppercase font-extrabold text-sm">
                       {word}
                     </span>
-                    <StarIcon className="size-6 text-gray-950 -rotate-12" />
+                    <BsStars />
                   </div>
                 ))}
               </Fragment>
