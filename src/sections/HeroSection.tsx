@@ -17,11 +17,11 @@ import { useState } from "react";
 
 export const HeroSection = () => {
   const words = [
-    "web3 Enthusiast.",
+    "Web3 Enthusiast.",
     "Full-Stack Developer.",
     "Digital Artist.",
     "Technophile.",
-    "Tech-Savvy",
+    "Tech-Savvy.",
   ];
   const [buttonText, setButtonText] = useState("Let's Connect");
 

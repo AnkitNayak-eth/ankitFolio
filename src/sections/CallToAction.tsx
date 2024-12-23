@@ -41,15 +41,15 @@ export function CallToAction() {
   }, []);
 
   const [buttonText, setButtonText] = useState("Let's Connect");
-  
-    const handleCopy = () => {
-      navigator.clipboard.writeText("ankitkumarnayak1234@gmail.com").then(() => {
-        setButtonText("Email Copied!");
-        setTimeout(() => {
-          setButtonText("Let's Connect");
-        }, 1000);
-      });
-    };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("ankitkumarnayak1234@gmail.com").then(() => {
+      setButtonText("Email Copied!");
+      setTimeout(() => {
+        setButtonText("Let's Connect");
+      }, 1000);
+    });
+  };
 
   return (
     <div
@@ -58,12 +58,16 @@ export function CallToAction() {
       id="contact"
     >
       <canvas
-  ref={canvasRef}
-  className="w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] transform translate-y-[180px]"
-  width="1000"
-  height="1000"
-></canvas>
-
+        ref={canvasRef}
+        className="w-full h-full"
+        style={{
+          width: "400px",
+          height: "400px",
+          transform: "translateY(180px)",
+        }}
+        width="1000"
+        height="1000"
+      ></canvas>
 
       <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
         <div className="py-8 px-10 text-center relative">
@@ -78,9 +82,12 @@ export function CallToAction() {
               </p>
             </div>
             <div>
-              <button onClick={handleCopy} className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
+              <button
+                onClick={handleCopy}
+                className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900"
+              >
                 <span className="font-semibold">{buttonText}</span>
-                <FaExternalLinkAlt/>
+                <FaExternalLinkAlt />
               </button>
             </div>
           </div>
