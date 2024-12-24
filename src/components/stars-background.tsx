@@ -8,6 +8,7 @@ import React, {
   useCallback,
 } from "react";
 
+
 interface StarProps {
   x: number;
   y: number;
