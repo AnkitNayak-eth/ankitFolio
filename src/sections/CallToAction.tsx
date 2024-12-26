@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import createGlobe from "cobe";
+import { BackgroundGradient } from "@/components/background-gradient";
 
 export function CallToAction() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -68,7 +69,7 @@ export function CallToAction() {
         height="1000"
       ></canvas>
 
-
+<BackgroundGradient>
       <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
         <div className="py-8 px-10 text-center relative">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
@@ -93,6 +94,7 @@ export function CallToAction() {
           </div>
         </div>
       </div>
+      </BackgroundGradient>
     </div>
   );
 }
