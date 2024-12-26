@@ -82,62 +82,61 @@ export const AboutSection = () => {
           description="Learn more about who I am, what I do, and what inspires me"
         />
 
-
-
         <div className="mt-20 flex flex-col gap-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <PinContainer
                 title="Download my CV"
                 href="/updatedCV.pdf"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="h-[320px] w-[320px]"
               >
-                <CardHeader
-                  title="My CV"
-                  description="Download my CV here."
-                />
+                <CardHeader title="My CV" description="Download my CV here." />
                 <div className="w-40 mx-auto mt-2 md:mt-0">
                   <Image src={cv} alt="cv" />
                 </div>
               </PinContainer>
             </Card>
-            <Card className="h-[320px] md:col-span-3 lg:col-span-2">
-              <CardHeader
-                title="My Toolbox"
-                description="Explore the technologies and tools used to craft exceptional digital
+            <div className="h-[320px] md:col-span-3 lg:col-span-2 mt-4">
+              <Card>
+                <CardHeader
+                  title="My Toolbox"
+                  description="Explore the technologies and tools used to craft exceptional digital
               experiences."
-                className=""
-              />
-              <ToolBoxItems
-                toolboxItems={toolBoxItems}
-                className="mt-6 animate-move-left [animation-duration:15s]"
-              />
-              <ToolBoxItems
-                toolboxItems={toolBoxItems}
-                className="mt-6 animate-move-right [animation-duration:15s]"
-                itemsWrapperClassName=""
-              />
-            </Card>
+                  className=""
+                />
+                <ToolBoxItems
+                  toolboxItems={toolBoxItems}
+                  className="mt-6 animate-move-left [animation-duration:15s]"
+                />
+                <ToolBoxItems
+                  toolboxItems={toolBoxItems}
+                  className="mt-6 animate-move-right [animation-duration:15s]"
+                  itemsWrapperClassName=""
+                />
+              </Card>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
-            <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
-              <CardHeader
-                title="Beyond The Code"
-                description="Explore my interests and hobbies in the tech realm."
-                className="px-6 pt-6"
-              />
-              <ToolBoxItems
-                toolboxItems={hobbies}
-                className="mt-6 animate-move-left [animation-duration:15s]"
-              />
-              <ToolBoxItems
-                toolboxItems={hobbies}
-                className="mt-6 animate-move-right [animation-duration:15s]"
-                itemsWrapperClassName=""
-              />
-            </Card>
+            <div className="h-[320px] p-0 md:col-span-3 lg:col-span-2 mt-4">
+              <Card>
+                <CardHeader
+                  title="Beyond The Code"
+                  description="Explore my interests and hobbies in the tech realm."
+                  className="px-6 pt-6"
+                />
+                <ToolBoxItems
+                  toolboxItems={hobbies}
+                  className="mt-6 animate-move-left [animation-duration:15s]"
+                />
+                <ToolBoxItems
+                  toolboxItems={hobbies}
+                  className="mt-6 animate-move-right [animation-duration:15s]"
+                  itemsWrapperClassName=""
+                />
+              </Card>
+            </div>
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
               <PinContainer
                 title="I live in India"

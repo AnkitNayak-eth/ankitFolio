@@ -7,7 +7,6 @@ import JohnTC from "@/assets/images/JohnTC.webp";
 import Naveen from "@/assets/images/Naveen.webp";
 import Image from "next/image";
 import { Fragment } from "react";
-import { BackgroundGradient } from "@/components/background-gradient";
 
 const testimonials = [
   {
@@ -56,30 +55,29 @@ export const TestimonialsSection = () => {
             {[...new Array(2)].fill(0).map((_, idx) => (
               <Fragment key={idx}>
                 {testimonials.map((testimonial) => (
-                  <BackgroundGradient key={testimonial.name}>
-                    <Card className="flex gap-4 max-w-xs md:max-w-md p-6 md:p-8 hover:-rotate-3 transition duration-300">
-                      <div className="size-14 bg-gray-700 items-center justify-center inline-flex rounded-full flex-shrink-0">
-                        <Image
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          className="size-max rounded-full"
-                        />
-                      </div>
-                      <div className="flex gap-4 items-center">
-                        <div>
-                          <div className="font-semibold">
-                            {testimonial.name}
-                          </div>
-                          <div className="font-sm text-white/40">
-                            {testimonial.position}
-                          </div>
-                          <p className="mt-4 md:mt-6 lg:mt-2 text-sm">
-                            {testimonial.text}
-                          </p>
+                  <Card
+                    key={testimonial.name}
+                    className="flex gap-4 max-w-xs md:max-w-md p-6 md:p-8 hover:-rotate-3 transition duration-300"
+                  >
+                    <div className="size-14 bg-gray-700 items-center justify-center inline-flex rounded-full flex-shrink-0">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="size-max rounded-full"
+                      />
+                    </div>
+                    <div className="flex gap-4 items-center">
+                      <div>
+                        <div className="font-semibold">{testimonial.name}</div>
+                        <div className="font-sm text-white/40">
+                          {testimonial.position}
                         </div>
+                        <p className="mt-4 md:mt-6 lg:mt-2 text-sm">
+                          {testimonial.text}
+                        </p>
                       </div>
-                    </Card>
-                  </BackgroundGradient>
+                    </div>
+                  </Card>
                 ))}
               </Fragment>
             ))}

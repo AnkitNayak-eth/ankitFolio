@@ -69,31 +69,31 @@ export function CallToAction() {
         height="1000"
       ></canvas>
 
-<BackgroundGradient>
-      <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
-        <div className="py-8 px-10 text-center relative">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl">
-                Let's Create something amazing together.
-              </h2>
-              <p className="text-sm mt-2 md:text-base">
-                Ready to bring your next project to life? Let's connect and
-                discuss how I can help you achieve your goals.
-              </p>
-            </div>
-            <div>
-              <button
-                onClick={handleCopy}
-                className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900"
-              >
-                <span className="font-semibold">{buttonText}</span>
-                <FaExternalLinkAlt />
-              </button>
+      <BackgroundGradient>
+        <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
+          <div className="py-8 px-10 text-center relative">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
+              <div>
+                <h2 className="font-serif text-2xl md:text-3xl">
+                  Let's Create something amazing together.
+                </h2>
+                <p className="text-sm mt-2 md:text-base">
+                  Ready to bring your next project to life? Let's connect and
+                  discuss how I can help you achieve your goals.
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={handleCopy}
+                  className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900"
+                >
+                  <span className="font-semibold">{buttonText}</span>
+                  <FaExternalLinkAlt />
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </BackgroundGradient>
     </div>
   );
