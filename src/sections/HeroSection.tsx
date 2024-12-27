@@ -18,7 +18,7 @@ import { useState } from "react";
 export const HeroSection = () => {
   const words = [
     "Web3 Enthusiast.",
-    "Full-Stack Developer.",
+    "Full-Stack Dev.",
     "Digital Artist.",
     "Technophile.",
     "Tech-Savvy.",
