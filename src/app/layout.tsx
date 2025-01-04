@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {Inter, Calistoga} from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import { twMerge } from "tailwind-merge";
 
 const inter = Inter({subsets:["latin"],variable:"--font-sans"});
@@ -18,20 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="google-site-verification" content="uNZSE8Lj4QXGOuj8CIvaCnjeR4Rb_9hmWyw-Qkjsrug" />
-        <meta name="title" content={String(metadata.title) ?? ""} />
-        <meta name="description" content={metadata.description ?? ""} />
-      </Head>
-      <body
-        className={twMerge(
-          inter.variable,
-          calistoga.variable,
-          "bg-gray-950 text-white antialiased font-sans"
-        )}
-      >
-        {children}
-      </body>
+      <body className={twMerge(inter.variable, calistoga.variable,"bg-gray-950 text-white antialiased font-sans")} >{children}</body>
     </html>
   );
 }
