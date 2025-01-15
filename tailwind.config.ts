@@ -78,6 +78,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwind-scrollbar'),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(

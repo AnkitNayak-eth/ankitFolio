@@ -1,4 +1,4 @@
- "use client"
+"use client";
 import avatar from "@/assets/images/avatar.gif";
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa";
@@ -117,21 +117,27 @@ export const HeroSection = () => {
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide leading-loose">
             Hi, I’m Ankit 👋
             <br />
-            I’m a<FlipWords words={words} /> <br />
+            I’m a<FlipWords words={words} className="text-white"/>
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             Full-Stack Developer skilled in Next.js, MERN stack, and React
             Native. Exploring Web3, NFTs, and digital arts. Currently learning
-            Spring Boot !
+            Spring Boot!
           </p>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-            <button onClick={handleScrollToAbout} className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:translate-y-2 transition duration-300">
+            <button
+              onClick={handleScrollToAbout}
+              className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:translate-y-2 transition duration-300"
+            >
               <span className="font-semibold">Explore My Work</span>
               <FaArrowDown />
             </button>
-            <button onClick={handleCopy} className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/70 hover:text-gray-900">
+            <button
+              onClick={handleCopy}
+              className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/70 hover:text-gray-900"
+            >
               <span>👋</span>
               <span className="font-semibold">{buttonText}</span>
             </button>

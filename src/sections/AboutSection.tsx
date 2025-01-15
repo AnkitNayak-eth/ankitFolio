@@ -16,27 +16,27 @@ import { PinContainer } from "@/components/3d-pin";
 
 const toolBoxItems = [
   {
-    title: "JavaScript",
+    title: "React",
     iconType: FaReact,
   },
   {
-    title: "HTML5",
+    title: "JS",
     iconType: FaJs,
   },
   {
-    title: "CSS3",
+    title: "NextJS",
     iconType: RiNextjsLine,
   },
   {
-    title: "React",
+    title: "Html",
     iconType: FaHtml5,
   },
   {
-    title: "Chrome",
+    title: "Tailwind",
     iconType: RiTailwindCssFill,
   },
   {
-    title: "GitHub",
+    title: "NodeJS",
     iconType: FaNode,
   },
 ];
@@ -98,41 +98,38 @@ export const AboutSection = () => {
                 </div>
               </PinContainer>
             </Card>
-            <div className="h-[320px] md:col-span-3 lg:col-span-2 mt-4">
+            <div className="h-[320px] md:col-span-3 lg:col-span-2">
               <Card>
                 <CardHeader
                   title="My Toolbox"
                   description="Explore the technologies and tools used to craft exceptional digital
               experiences."
-                  className=""
                 />
                 <ToolBoxItems
                   toolboxItems={toolBoxItems}
-                  className="mt-6 animate-move-left [animation-duration:15s]"
+                  className="m-6 animate-move-left [animation-duration:15s]"
                 />
                 <ToolBoxItems
                   toolboxItems={toolBoxItems}
-                  className="mt-6 animate-move-right [animation-duration:15s]"
-                  itemsWrapperClassName=""
+                  className="m-6 animate-move-right [animation-duration:15s]"
                 />
               </Card>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
-            <div className="h-[320px] p-0 md:col-span-3 lg:col-span-2 mt-4">
+            <div className="h-[320px] md:col-span-3 lg:col-span-2">
               <Card>
                 <CardHeader
                   title="Beyond The Code"
                   description="Explore my interests and hobbies in the tech realm."
-                  className="px-6 pt-6"
                 />
                 <ToolBoxItems
                   toolboxItems={hobbies}
-                  className="mt-6 animate-move-left [animation-duration:15s]"
+                  className="m-6 animate-move-left [animation-duration:15s]"
                 />
                 <ToolBoxItems
                   toolboxItems={hobbies}
-                  className="mt-6 animate-move-right [animation-duration:15s]"
+                  className="m-6 animate-move-right [animation-duration:15s]"
                   itemsWrapperClassName=""
                 />
               </Card>

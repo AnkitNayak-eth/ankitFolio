@@ -107,39 +107,40 @@ export const ProjectsSection = () => {
           title="Featured Projects"
           description="See How I Transformed Concepts Into Digital Experience."
         />
-        <div className=" md:mt-20 flex flex-col mt-10 gap-20">
+        <div className="md:mt-20 flex flex-col mt-10 gap-20">
           {portfolioProjects.map((project, projectIndex) => (
             <div
               key={project.title}
-              className="after:pointer-events-none sticky"
+              className="after:pointer-events-none sticky transition-all duration-300 hover:scale-[1.01]"
               style={{ top: `calc(64px + ${projectIndex * 60}px` }}
             >
               <Card>
-                <div className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20">
+                <div className="px-6 pt-6 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-300">
                   <div className="lg:grid lg:grid-cols-2 lg:gap-16 relative">
                     <div className="lg:pb-16">
-                      <div className="inline-flex uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
+                      <div className="inline-flex items-center gap-2 uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
                         <span>{project.company}</span>
-                        <span>&bull;</span>
+                        <span className="text-white/30">&bull;</span>
                         <span>{project.year}</span>
                       </div>
-                      <h3 className="font-serif text-2xl mt-2 md:mt-5 md:text-4xl">
+                      <h3 className="font-serif text-2xl mt-3 md:mt-5 md:text-4xl font-bold">
                         {project.title}
                       </h3>
-                      <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-                      <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+                      <hr className="border-t-2 border-white/10 my-4 md:my-6" />
+                      <ul className="flex flex-col gap-4 my-6 md:my-8">
                         {project.results.map((result, index) => (
                           <li
                             key={index}
-                            className="flex gap-2 text-sm md:text-base text-white/50"
+                            className="flex items-center gap-3 text-sm md:text-base text-white/60 hover:text-white/90 transition-colors duration-200"
                           >
-                            <FaRegCircleCheck />
+                            <FaRegCircleCheck className="text-emerald-400 flex-shrink-0" />
                             <span>{result.title}</span>
                           </li>
                         ))}
                       </ul>
                       <a
                         href={project.link}
+                        className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-200 group"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
