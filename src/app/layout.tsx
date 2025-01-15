@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Ankit Kumar Nayak Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ankit Kumar Nayak Portfolio",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ankit Kumar Nayak | Full-Stack Developer",
     description: "A passionate full-stack developer with expertise in React.js, Web3, and mobile app development.",
-    images: ["/og-image.png"],
+    images: ["images/og-image.png"],
   },
 };
 
