@@ -2,16 +2,23 @@ import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import { Header } from "@/sections/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weight: ["400"] });
+const calistoga = Calistoga({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "Ankit Kumar Nayak | Full-Stack Developer & Web3 Enthusiast",
-  description: "A passionate full-stack developer specializing in React.js, MERN stack, and mobile app development with React Native. Exploring the realms of Web3, NFTs, and digital arts. Let’s build the future together!",
+  description:
+    "A passionate full-stack developer specializing in React.js, MERN stack, and mobile app development with React Native. Exploring the realms of Web3, NFTs, and digital arts. Let’s build the future together!",
   openGraph: {
     title: "Ankit Kumar Nayak | Full-Stack Developer",
-    description: "A full-stack developer specializing in React.js, MERN stack, and mobile app development. Exploring Web3, NFTs, and digital arts.",
+    description:
+      "A full-stack developer specializing in React.js, MERN stack, and mobile app development. Exploring Web3, NFTs, and digital arts.",
     url: "https://ankit-nayak.vercel.app",
     siteName: "Ankit Kumar Nayak Portfolio",
     images: [
@@ -28,7 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ankit Kumar Nayak | Full-Stack Developer",
-    description: "A passionate full-stack developer with expertise in React.js, Web3, and mobile app development.",
+    description:
+      "A passionate full-stack developer with expertise in React.js, Web3, and mobile app development.",
     images: ["images/og-image.png"],
   },
 };
@@ -48,13 +56,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Ankit Kumar Nayak",
-              "jobTitle": "Full-Stack Developer",
-              "url": "https://ankit-nayak.vercel.app/",
-              "sameAs": [
+              name: "Ankit Kumar Nayak",
+              jobTitle: "Full-Stack Developer",
+              url: "https://ankit-nayak.vercel.app/",
+              sameAs: [
                 "https://linkedin.com/in/ankitnayaketh",
-                "https://github.com/AnkitNayak-eth"
-              ]
+                "https://github.com/AnkitNayak-eth",
+              ],
             }),
           }}
         />
@@ -66,6 +74,7 @@ export default function RootLayout({
           "bg-gray-950 text-white antialiased font-sans"
         )}
       >
+        <Header />
         {children}
       </body>
     </html>
