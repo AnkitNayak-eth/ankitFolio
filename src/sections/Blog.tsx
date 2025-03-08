@@ -98,7 +98,7 @@ export const BlogSection = () => {
                       {post.title}
                     </h2>
                     <p className="text-gray-300 mt-2 flex-grow">
-                      {post.description.slice(0, 120)}...
+                      {post.description.slice(0, 100)}...
                     </p>
                     <Link href={`/blogs/${encodeURIComponent(post.guid)}`}>
                       <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700 transition duration-300">
@@ -112,7 +112,7 @@ export const BlogSection = () => {
           </div>
 
           {/* "More" Button */}
-          <div className="flex justify-end mt-12">
+          <div className="flex justify-center mt-12">
             <Link href="/blogs">
               <button className="bg-blue-600 text-white font-bold py-2 px-6 rounded-xl hover:bg-blue-700 transition duration-300">
                 View More Blogs →

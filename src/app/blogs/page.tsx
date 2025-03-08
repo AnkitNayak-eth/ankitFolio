@@ -102,7 +102,7 @@ const BlogPage = () => {
                       {post.title}
                     </h2>
                     <p className="text-gray-200 mt-2">
-                      {post.description.slice(0, 120)}...
+                      {post.description.slice(0, 100)}...
                     </p>
                     <Link href={`/blogs/${encodeURIComponent(post.guid)}`}>
                       <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700 transition duration-300">

@@ -30,6 +30,13 @@ export const Header = () => {
     setActiveHash(window.location.hash);
   }, [pathname]);
 
+  const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const hash = href.split("#")[1];
+    router.push(`/#${hash}`);
+    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/#about", label: "About" },
@@ -44,14 +51,15 @@ export const Header = () => {
         {navLinks.map((link) => {
           if (link.href.startsWith("/#")) {
             // Use <a> for anchor links
+            const hash = `#${link.href.split("#")[1]}`;
+            const isActive = activeHash === hash;
             return (
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleHashLinkClick(e, link.href)}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  activeHash === link.href.split("#")[1] || (pathname === "/" && link.href === "/")
-                    ? "bg-white text-gray-900"
-                    : "text-white hover:bg-white/20"
+                  isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
                 }`}
               >
                 {link.label}
@@ -59,14 +67,13 @@ export const Header = () => {
             );
           } else {
             // Use <Link> for internal routes
+            const isActive = pathname === link.href && !activeHash; // Home link is only active if there's no hash
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  pathname === link.href
-                    ? "bg-white text-gray-900"
-                    : "text-white hover:bg-white/20"
+                  isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
                 }`}
               >
                 {link.label}

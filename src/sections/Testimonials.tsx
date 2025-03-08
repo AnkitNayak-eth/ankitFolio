@@ -69,11 +69,11 @@ export const TestimonialsSection = () => {
                     <div className="flex gap-4 items-center">
                       <div>
                         <div className="font-semibold">{testimonial.name}</div>
-                        <div className="font-sm text-white/40">
+                        <div className="mt-2 text-xs text-white/40">
                           {testimonial.position}
                         </div>
                         <p className="mt-4 md:mt-6 lg:mt-2 text-sm">
-                          {testimonial.text}
+                          {testimonial.text.slice(0, 200)}...
                         </p>
                       </div>
                     </div>

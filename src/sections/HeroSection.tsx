@@ -45,6 +45,7 @@ export const HeroSection = () => {
 
   return (
     <div className="py-32 md:py-48 lg:py-60 relative overflow-x-clip" id="home">
+      
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] lg:mt-32">
         <div className="size-[700px] hero-ring"></div>
         <div className="size-[900px] hero-ring"></div>
