@@ -144,9 +144,18 @@ export const ProjectsSection = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <button className="bg-white text-black h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
-                          <span>{project.option}</span>
-                          <FaExternalLinkAlt />
+                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[4px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                          <span
+                            className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                            style={{
+                              animation: "spin 4s linear infinite",
+                            }}
+                          />
+
+                          <span className="gap-2 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black backdrop-blur-md">
+                            <span>{project.option}</span>
+                            <FaExternalLinkAlt />
+                          </span>
                         </button>
                       </a>
                     </div>

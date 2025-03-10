@@ -94,15 +94,24 @@ export const BlogSection = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6 flex flex-col h-full">
-                    <h2 className="text-2xl font-semibold text-gray-100">
+                    <h2 className="font-serif text-xl mt-3 md:mt-5 md:text-3xl font-bold">
                       {post.title}
                     </h2>
-                    <p className="text-gray-300 mt-2 flex-grow">
+                    <p className="m-4 font-normal text-lg text-neutral-300 max-w-lg text-left mx-auto">
                       {post.description.slice(0, 100)}...
                     </p>
                     <Link href={`/blogs/${encodeURIComponent(post.guid)}`}>
-                      <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700 transition duration-300">
-                        Read More →
+                      <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                        <span
+                          className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                          style={{
+                            animation: "spin 4s linear infinite",
+                          }}
+                        />
+
+                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-md">
+                          Read More →
+                        </span>
                       </button>
                     </Link>
                   </div>
@@ -111,11 +120,19 @@ export const BlogSection = () => {
             ))}
           </div>
 
-          {/* "More" Button */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-12 relative z-10">
             <Link href="/blogs">
-              <button className="bg-blue-600 text-white font-bold py-2 px-6 rounded-xl hover:bg-blue-700 transition duration-300">
-                View More Blogs →
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span
+                  className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                  style={{
+                    animation: "spin 4s linear infinite",
+                  }}
+                />
+
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-md">
+                  View More Blogs →
+                </span>
               </button>
             </Link>
           </div>

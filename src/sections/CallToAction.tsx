@@ -85,10 +85,19 @@ export function CallToAction() {
               <div>
                 <button
                   onClick={handleCopy}
-                  className="text-white bg-black inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900"
+                  className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                 >
-                  <span className="font-semibold">{buttonText}</span>
-                  <FaExternalLinkAlt />
+                  <span
+                    className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                    style={{
+                      animation: "spin 4s linear infinite",
+                    }}
+                  />
+
+                  <span className="gap-4 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white backdrop-blur-md">
+                    <span className="font-bold text-nowrap">{buttonText}</span>
+                    <FaExternalLinkAlt />
+                  </span>
                 </button>
               </div>
             </div>

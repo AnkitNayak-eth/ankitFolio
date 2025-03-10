@@ -59,6 +59,7 @@ const BlogPage = () => {
 
     fetchBlogs();
   }, []);
+
   return (
     <>
       <div className="min-h-screen w-full rounded-md flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.05] relative overflow-hidden py-16">
@@ -97,17 +98,26 @@ const BlogPage = () => {
                     alt={post.title}
                     className="w-full h-48 object-cover"
                   />
-                  <div className="p-6">
-                    <h2 className="text-2xl font-semibold text-gray-400">
+                  <div className="p-6 flex flex-col justify-between h-64">
+                    <h2 className="font-serif text-xl md:text-2xl font-bold line-clamp-2">
                       {post.title}
                     </h2>
-                    <p className="text-gray-200 mt-2">
-                      {post.description.slice(0, 100)}...
+                    <p className="text-lg text-neutral-300 line-clamp-3">
+                      {post.description}
                     </p>
                     <Link href={`/blogs/${encodeURIComponent(post.guid)}`}>
-                      <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700 transition duration-300">
-                        Read More →
-                      </button>
+                    <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span
+                  className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                  style={{
+                    animation: "spin 4s linear infinite",
+                  }}
+                />
+
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-md">
+                  Read More →
+                </span>
+              </button>
                     </Link>
                   </div>
                 </Card>
