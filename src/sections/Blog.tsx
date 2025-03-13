@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Vortex } from "@/components/vortex";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -80,6 +81,7 @@ export const BlogSection = () => {
           </a>
           .
         </p>
+        <Vortex>
         <div className="mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
@@ -137,6 +139,7 @@ export const BlogSection = () => {
             </Link>
           </div>
         </div>
+        </Vortex>
       </div>
     </section>
   );
