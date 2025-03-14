@@ -96,10 +96,10 @@ export const BlogSection = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6 flex flex-col h-full">
-                    <h2 className="font-serif text-xl mt-3 md:mt-5 md:text-3xl font-bold">
+                    <h2 className="font-serif text-xl mt-3 md:mt-5 md:text-3xl font-bold line-clamp-3">
                       {post.title}
                     </h2>
-                    <p className="m-4 font-normal text-lg text-neutral-300 max-w-lg text-left mx-auto">
+                    <p className="m-4 font-normal text-lg text-neutral-300 max-w-lg text-left mx-auto line-clamp-3">
                       {post.description.slice(0, 100)}...
                     </p>
                     <Link href={`/blogs/${encodeURIComponent(post.guid)}`}>
