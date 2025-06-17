@@ -1,73 +1,55 @@
 "use client";
-import { cn } from "@/lib/utils";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
 export const BackgroundGradient = ({
   children,
-  className,
-  containerClassName,
-  animate = true,
+  className = "",
+  containerClassName = "",
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
-  animate?: boolean;
 }) => {
-  const variants = {
-    initial: {
-      backgroundPosition: "0 50%",
-    },
-    animate: {
-      backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
-    },
-  };
-  return (
-    <div className={cn("relative p-[4px] group", containerClassName)}>
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? "initial" : undefined}
-        animate={animate ? "animate" : undefined}
-        transition={
-          animate
-            ? {
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }
-            : undefined
-        }
-        style={{
-          backgroundSize: animate ? "400% 400%" : undefined,
-        }}
-        className={cn(
-          "absolute inset-0 rounded-3xl opacity-60 group-hover:opacity-100 blur-xl  transition duration-500 will-change-transform",
-          " bg-[radial-gradient(circle_farthest-side_at_0_100%,#00ccb1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#7b61ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#ffc414,transparent),radial-gradient(circle_farthest-side_at_0_0,#1ca0fb,#141316)]"
-        )}
-      />
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? "initial" : undefined}
-        animate={animate ? "animate" : undefined}
-        transition={
-          animate
-            ? {
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }
-            : undefined
-        }
-        style={{
-          backgroundSize: animate ? "400% 400%" : undefined,
-        }}
-        className={cn(
-          "absolute inset-0 rounded-3xl will-change-transform",
-          "bg-[radial-gradient(circle_farthest-side_at_0_100%,#00ccb1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#7b61ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#ffc414,transparent),radial-gradient(circle_farthest-side_at_0_0,#1ca0fb,#141316)]"
-        )}
-      />
+  const ref = useRef<HTMLDivElement>(null);
 
-      <div className={cn("relative z-10", className)}>{children}</div>
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes borderColorAnim {
+        0% { border-color: #9333ea; }
+        25% { border-color: #3b82f6; }
+        50% { border-color: #10b981; }
+        75% { border-color: #f59e0b; }
+        100% { border-color: #9333ea; }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={containerClassName}
+      style={{
+        padding: "4px",
+        borderRadius: "24px",
+        border: "3px solid",
+        animation: "borderColorAnim 6s linear infinite",
+        display: "block",
+      }}
+    >
+      <div
+        className={className}
+        style={{
+          borderRadius: "20px",
+          overflow: "hidden",
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };
