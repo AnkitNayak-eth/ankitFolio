@@ -116,7 +116,7 @@ export const AboutSection = () => {
               </Card>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8 mt-8">
             <div className="h-[320px] md:col-span-3 lg:col-span-2">
               <Card>
                 <CardHeader

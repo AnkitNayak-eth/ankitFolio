@@ -2,6 +2,7 @@ import frens from "@/assets/images/frens.png";
 import nextShare from "@/assets/images/nextShare.png";
 import aura from "@/assets/images/aura.png";
 import llama from "@/assets/images/llama.png";
+import xclone from "@/assets/images/xclone.png";
 import Image from "next/image";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -9,6 +10,28 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    company: "Personal Project",
+    year: "2025",
+    title: "X Clone – Twitter (X) Full Stack Clone",
+    results: [
+      {
+        title:
+          "Built X Clone using Next.js 15, React Redux, Spring Boot 3.4.2, and JWT auth.",
+      },
+      {
+        title:
+          "Supports tweet posting, threads, profiles, follow system, media uploads, and personalized feeds.",
+      },
+      {
+        title:
+          "Designed secure REST APIs with Spring Security and MySQL (Aiven).",
+      },
+    ],
+    link: "https://x-clone-web-app.vercel.app/",
+    option: "Visit Live WebApp",
+    image: xclone,
+  },
   {
     company: "Personal Project",
     year: "2024",
