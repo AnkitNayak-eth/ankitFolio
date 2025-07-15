@@ -87,7 +87,7 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <PinContainer
                 title="Download my CV"
-                href="/updatedCV.pdf"
+                href="/updatedMyCV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-[320px] w-[320px]"
