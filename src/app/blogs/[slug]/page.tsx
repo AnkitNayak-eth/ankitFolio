@@ -75,7 +75,7 @@ const BlogDetailPage = () => {
             </span>
           </button>
         </Link>
-        <TracingBeam className="-ml-4">
+        <TracingBeam className="-ml-2">
           <div className="prose prose-lg pl-10 py-6 text-gray-200 rounded-xl shadow-lg">
             <h1 className="text-6xl font-bold mb-4 block md:hidden">{post.title}</h1>
 
