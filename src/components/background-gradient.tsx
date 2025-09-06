@@ -34,7 +34,7 @@ export const BackgroundGradient = ({
       ref={ref}
       className={containerClassName}
       style={{
-        padding: "4px",
+        padding: "",
         borderRadius: "24px",
         border: "3px solid",
         animation: "borderColorAnim 6s linear infinite",

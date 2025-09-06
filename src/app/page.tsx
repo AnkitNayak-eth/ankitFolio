@@ -12,7 +12,7 @@ import { BlogSection } from "@/sections/Blog";
 export default function Home() {
   return (
     <>
-    <div className="relative bg-grid-white/[0.1]">
+    <div className="relative bg-grid-white/[0.2]">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <HeroSection />
       <AboutSection/>
