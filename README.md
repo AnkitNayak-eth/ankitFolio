@@ -17,7 +17,7 @@
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **UI Library**: [Aceternity UI](https://ui.aceternity.com/)  
+- **UI Library**: [Aceternity UI](https://ui.aceternity.com/), [React Bits](https://reactbits.dev/)
 - **3D Graphics**: [Three.js](https://threejs.org/), [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
 - **Styling**: [TailwindCSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
