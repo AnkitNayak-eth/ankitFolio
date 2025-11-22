@@ -29,11 +29,13 @@ export default {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
       },
-      animation:{
-        'ping-large':"ping-large 1s ease-in-out infinite",
-        'move-left' : "move-left 1s linear infinite",
-        'move-right' : "move-right 1s linear infinite",
+      animation: {
+        "ping-large": "ping-large 1s ease-in-out infinite",
+        "move-left": "move-left 1s linear infinite",
+        "move-right": "move-right 1s linear infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "fade-in": "fade-in 0.3s ease-out forwards",
+        "slide-up": "slide-up 0.5s ease-out forwards",
       },
       keyframes: {
         "ping-large": {
@@ -42,21 +44,29 @@ export default {
             opacity: "0",
           },
         },
-        "move-left":{
-          '0%':{
-            transform:'translateX(0%)',
+        "move-left": {
+          "0%": {
+            transform: "translateX(0%)",
           },
-          '100%':{
-            transform:'translateX(-50%)',
-          }
+          "100%": {
+            transform: "translateX(-50%)",
+          },
         },
-        "move-right":{
-          '0%':{
-            transform:'translateX(-50%)',
+        "move-right": {
+          "0%": {
+            transform: "translateX(-50%)",
           },
-          '100%':{
-            transform:'translateX(0%)',
-          }
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(100px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         spotlight: {
           "0%": {
@@ -72,7 +82,7 @@ export default {
     },
   },
   plugins: [
-    require('tailwind-scrollbar'),
+    require("tailwind-scrollbar"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(

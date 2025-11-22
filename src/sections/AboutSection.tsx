@@ -1,78 +1,40 @@
+"use client";
+import { useState } from "react";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import cv from "@/assets/images/cv.jpg";
 import Image from "next/image";
-import { FaReact } from "react-icons/fa";
-import { FaJs } from "react-icons/fa";
-import { RiNextjsLine } from "react-icons/ri";
-import { FaHtml5 } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { FaNode } from "react-icons/fa";
+import { FaReact, FaJs, FaHtml5, FaNode } from "react-icons/fa";
+import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
 import MapImage from "@/assets/images/map.png";
 import avatar from "@/assets/images/avatar.gif";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolBoxItems } from "@/components/ToolBoxItems";
 import { PinContainer } from "@/components/3d-pin";
-
-const toolBoxItems = [
-  {
-    title: "React",
-    iconType: FaReact,
-  },
-  {
-    title: "JS",
-    iconType: FaJs,
-  },
-  {
-    title: "NextJS",
-    iconType: RiNextjsLine,
-  },
-  {
-    title: "Html",
-    iconType: FaHtml5,
-  },
-  {
-    title: "Tailwind",
-    iconType: RiTailwindCssFill,
-  },
-  {
-    title: "NodeJS",
-    iconType: FaNode,
-  },
-];
-
-const hobbies = [
-  {
-    title: "Painting",
-    emoji: "🎨",
-  },
-  {
-    title: "Photography",
-    emoji: "📸",
-  },
-  {
-    title: "Gaming",
-    emoji: "🎮",
-  },
-  {
-    title: "Hiking",
-    emoji: "🥾",
-  },
-  {
-    title: "Music",
-    emoji: "🎶",
-  },
-  {
-    title: "Fitness",
-    emoji: "💪",
-  },
-  {
-    title: "Reading",
-    emoji: "📚",
-  },
-];
+import { AiOutlineClose } from "react-icons/ai"; // Close icon
 
 export const AboutSection = () => {
+  const [isCvOpen, setIsCvOpen] = useState(false); // State for CV modal
+
+  const toolBoxItems = [
+    { title: "React", iconType: FaReact },
+    { title: "JS", iconType: FaJs },
+    { title: "NextJS", iconType: RiNextjsLine },
+    { title: "Html", iconType: FaHtml5 },
+    { title: "Tailwind", iconType: RiTailwindCssFill },
+    { title: "NodeJS", iconType: FaNode },
+  ];
+
+  const hobbies = [
+    { title: "Painting", emoji: "🎨" },
+    { title: "Photography", emoji: "📸" },
+    { title: "Gaming", emoji: "🎮" },
+    { title: "Hiking", emoji: "🥾" },
+    { title: "Music", emoji: "🎶" },
+    { title: "Fitness", emoji: "💪" },
+    { title: "Reading", emoji: "📚" },
+  ];
+
   return (
     <div className="pb-20 lg:py-28 mt-8" id="about">
       <div className="container">
@@ -84,26 +46,30 @@ export const AboutSection = () => {
 
         <div className="mt-20 flex flex-col gap-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <PinContainer
-                title="Download my CV"
-                href="/updatedMyCV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-[320px] w-[320px]"
-              >
-                <CardHeader title="My CV" description="Download my CV here." />
-                <div className="w-40 mx-auto mt-2 md:mt-0">
-                  <Image src={cv} alt="cv" />
-                </div>
-              </PinContainer>
+            {/* CV Card */}
+            <Card className="h-[320px] md:col-span-2 lg:col-span-1 cursor-pointer">
+              <div onClick={() => setIsCvOpen(true)}>
+                <PinContainer
+                  title="View my CV"
+                  className="h-[320px] w-[320px]"
+                >
+                  <CardHeader
+                    title="My CV"
+                    description="Click to view my CV."
+                  />
+                  <div className="w-40 mx-auto mt-2 md:mt-0">
+                    <Image src={cv} alt="cv" />
+                  </div>
+                </PinContainer>
+              </div>
             </Card>
+
+            {/* Toolbox */}
             <div className="h-[320px] md:col-span-3 lg:col-span-2">
               <Card>
                 <CardHeader
                   title="My Toolbox"
-                  description="Explore the technologies and tools used to craft exceptional digital
-              experiences."
+                  description="Explore the technologies and tools used to craft exceptional digital experiences."
                 />
                 <ToolBoxItems
                   toolboxItems={toolBoxItems}
@@ -116,6 +82,8 @@ export const AboutSection = () => {
               </Card>
             </div>
           </div>
+
+          {/* Hobbies & Map */}
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8 mt-8">
             <div className="h-[320px] md:col-span-3 lg:col-span-2">
               <Card>
@@ -156,6 +124,42 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
+
+      {isCvOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in">
+          <Card className="relative w-12/12 max-w-4xl rounded-2xl shadow-2xl transform transition-transform duration-500 animate-slide-up h-[70vh] lg:h-[90vh] flex justify-start items-center">
+            <button
+              className="absolute top-4 right-4 text-4xl text-white hover:text-gray-400"
+              onClick={() => setIsCvOpen(false)}
+            >
+              <AiOutlineClose />
+            </button>
+
+            <div className="overflow-auto max-h-[90vh] flex justify-center items-center ">
+              <div className="w-10/12 lg:w-9/12 ">
+                <Image
+                  src={cv}
+                  alt="CV"
+                  className="w-full h-auto object-contain rounded-xl shadow-md"
+                />
+              </div>
+            </div>
+            <button
+              onClick={() => window.open("/updatedMyCV.pdf", "_blank")}
+              className="absolute my-3 bottom-2 left-10 lg:left-20 h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+            >
+              <span
+                className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                style={{ animation: "spin 4s linear infinite" }}
+              />
+
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white backdrop-blur-md">
+                View PDF →
+              </span>
+            </button>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };

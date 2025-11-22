@@ -12,6 +12,7 @@ export const PinContainer = ({
   rel,
   className,
   containerClassName,
+  
 }: {
   children: React.ReactNode;
   title?: string;
@@ -20,6 +21,7 @@ export const PinContainer = ({
   rel?: string;
   className?: string;
   containerClassName?: string;
+    onClick?: () => void;
 }) => {
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"

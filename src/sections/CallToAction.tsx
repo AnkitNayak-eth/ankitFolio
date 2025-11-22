@@ -8,37 +8,45 @@ export function CallToAction() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    let phi = 0;
     const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    if (canvas) {
-      const globe = createGlobe(canvas, {
-        devicePixelRatio: 2,
-        width: 1000,
-        height: 1000,
-        phi: 0,
-        theta: 0,
-        dark: 1,
-        diffuse: 1.2,
-        scale: 1,
-        mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor: [0.3, 0.3, 0.3],
-        markerColor: [0, 1.0, 0],
-        glowColor: [1, 1, 1],
-        offset: [0, 0],
-        markers: [{ location: [20.5937, 78.9629], size: 0.1 }],
+    let phi = 0;
+    let isVisible = true;
 
-        onRender: (state) => {
-          state.phi = phi;
-          phi += 0.01;
-        },
-      });
+    const observer = new IntersectionObserver(
+      ([entry]) => (isVisible = entry.isIntersecting),
+      { threshold: 0.1 }
+    );
 
-      return () => {
-        globe.destroy();
-      };
-    }
+    observer.observe(canvas);
+
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: 1.5,
+      width: 600,
+      height: 600,
+      phi: 0,
+      theta: 0,
+      dark: 1,
+      diffuse: 1,
+      scale: 1,
+      mapSamples: 1000,
+      mapBrightness: 5,
+      baseColor: [0.3, 0.3, 0.3],
+      markerColor: [0, 1, 0],
+      glowColor: [1, 1, 1],
+      markers: [{ location: [20.5937, 78.9629], size: 0.1 }],
+      onRender: (state: any) => {
+        if (!isVisible) return;
+        phi += 0.009;
+        state.phi = phi;
+      }
+    });
+
+    return () => {
+      globe.destroy();
+      observer.disconnect();
+    };
   }, []);
 
   const [buttonText, setButtonText] = useState("Let's Connect");
@@ -46,27 +54,25 @@ export function CallToAction() {
   const handleCopy = () => {
     navigator.clipboard.writeText("ankitkumarnayak1234@gmail.com").then(() => {
       setButtonText("Email Copied!");
-      setTimeout(() => {
-        setButtonText("Let's Connect");
-      }, 1000);
+      setTimeout(() => setButtonText("Let's Connect"), 1000);
     });
   };
 
   return (
     <div
-      className=" flex flex-col justify-center items-center container pb-16 lg:pb-24 overflow-x-hidden"
+      className="flex flex-col justify-center items-center container pb-16 lg:pb-24 overflow-x-hidden"
       style={{ transform: "translateY(-100px)" }}
       id="contact"
     >
       <canvas
         ref={canvasRef}
+        width={600}
+        height={600}
         style={{
-          maxWidth: "500px",
-          maxHeight: "500px",
-          transform: "translateY(180px)",
+          maxWidth: "400px",
+          maxHeight: "400px",
+          transform: "translateY(180px)"
         }}
-        width="1000"
-        height="1000"
       ></canvas>
 
       <BackgroundGradient>
@@ -89,11 +95,8 @@ export function CallToAction() {
                 >
                   <span
                     className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-                    style={{
-                      animation: "spin 4s linear infinite",
-                    }}
+                    style={{ animation: "spin 4s linear infinite" }}
                   />
-
                   <span className="gap-4 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white backdrop-blur-md">
                     <span className="font-bold text-nowrap">{buttonText}</span>
                     <FaExternalLinkAlt />
