@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import cv from "@/assets/images/cv.jpg";
+import cv from "@/assets/images/cv.png";
 import Image from "next/image";
 import { FaReact, FaJs, FaHtml5, FaNode } from "react-icons/fa";
 import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
@@ -127,22 +127,20 @@ export const AboutSection = () => {
 
       {isCvOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in">
-          <Card className="relative w-12/12 max-w-4xl rounded-2xl shadow-2xl transform transition-transform duration-500 animate-slide-up h-[70vh] lg:h-[90vh] flex justify-start items-center">
+          <Card className="relative w-screen max-w-3xl rounded-2xl shadow-2xl transform transition-transform duration-500 animate-slide-up h-[80vh] lg:h-[95vh] flex justify-center items-center">
             <button
-              className="absolute top-4 right-4 text-4xl text-white hover:text-gray-400"
+              className="absolute top-4 right-4 text-4xl text-white hover:text-gray-400 z-10"
               onClick={() => setIsCvOpen(false)}
             >
               <AiOutlineClose />
             </button>
 
-            <div className="overflow-auto max-h-[90vh] flex justify-center items-center ">
-              <div className="w-10/12 lg:w-9/12 ">
-                <Image
-                  src={cv}
-                  alt="CV"
-                  className="w-full h-auto object-contain rounded-xl shadow-md"
-                />
-              </div>
+            <div className="w-full h-full overflow-auto flex justify-center items-center p-4">
+              <Image
+                src={cv}
+                alt="CV"
+                className="w-auto h-auto max-w-full max-h-full object-contain rounded-xl shadow-md lg:scale-[1.3]"
+              />
             </div>
             <button
               onClick={() => window.open("/updatedMyCV.pdf", "_blank")}
