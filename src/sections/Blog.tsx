@@ -3,6 +3,7 @@ import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const BlogSection = () => {
   type MediumPost = {
@@ -62,28 +63,39 @@ export const BlogSection = () => {
   return (
     <section className="py-16 lg:py-24" id="blog">
       <div className="container mx-auto px-4">
-        <SectionHeader
-          eyebrow="Latest Blogs"
-          title="Latest Blogs"
-          description="Check out my latest blogs"
-        />
-        <p className="m-4 font-normal text-xl text-neutral-300 max-w-lg text-center mx-auto">
-          I am fetching these blogs from my Medium account. <br />
-          Check out my latest articles on{" "}
-          <a
-            href="https://medium.com/@ankit.exe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:underline"
-          >
-            @ankit.exe
-          </a>
-          .
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <SectionHeader
+            eyebrow="Latest Blogs"
+            title="Latest Blogs"
+            description="Check out my latest blogs"
+          />
+          <p className="m-4 font-normal text-xl text-neutral-300 max-w-lg text-center mx-auto">
+            I am fetching these blogs from my Medium account. <br />
+            Check out my latest articles on{" "}
+            <a
+              href="https://medium.com/@ankit.exe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              @ankit.exe
+            </a>
+            .
+          </p>
+        </motion.div>
         <div className="mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <div
+            {posts.map((post, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 100, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ type: "spring", bounce: 0.5, duration: 1.2, delay: 0.1 * index }}
+                viewport={{ once: true, amount: 0.2 }}
                 key={post.guid}
                 className="bg-gray-900 hover:bg-black ease-in-out shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-2"
               >
@@ -116,11 +128,17 @@ export const BlogSection = () => {
                     </Link>
                   </div>
                 </Card>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="flex justify-center mt-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", bounce: 0.5, duration: 1.2, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-12 relative z-10"
+          >
             <Link href="/blogs">
               <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <span
@@ -135,7 +153,7 @@ export const BlogSection = () => {
                 </span>
               </button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,6 @@
+"use client";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export const footerLinks = [
   {
@@ -26,15 +28,17 @@ export const Footer = () => {
 
           <nav className="flex flex-row items-center gap-8">
             {footerLinks.map((link, index) => (
-              <a
+              <motion.a
+                whileHover={{ scale: 1.5 }}
+                whileTap={{ scale: 0.9 }}
                 href={link.href}
                 key={index}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transform hover:scale-150 transition-transform duration-300 ease-in-out"
+                className="inline-flex items-center gap-1.5 transition-transform duration-300 ease-in-out"
               >
                 <span>{link.icon}</span>
-              </a>
+              </motion.a>
             ))}
           </nav>
         </div>

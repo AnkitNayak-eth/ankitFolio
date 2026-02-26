@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import createGlobe from "cobe";
 import { BackgroundGradient } from "@/components/background-gradient";
+import { motion } from "framer-motion";
 
 export function CallToAction() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -75,38 +76,45 @@ export function CallToAction() {
         }}
       ></canvas>
 
-      <BackgroundGradient>
-        <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
-          <div className="py-8 px-10 text-center relative">
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
-              <div>
-                <h2 className="font-serif text-2xl md:text-3xl">
-                  Let's Create something amazing together.
-                </h2>
-                <p className="text-sm mt-2 md:text-base">
-                  Ready to bring your next project to life? Let's connect and
-                  discuss how I can help you achieve your goals.
-                </p>
-              </div>
-              <div>
-                <button
-                  onClick={handleCopy}
-                  className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-                >
-                  <span
-                    className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-                    style={{ animation: "spin 4s linear infinite" }}
-                  />
-                  <span className="gap-4 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white backdrop-blur-md">
-                    <span className="font-bold text-nowrap">{buttonText}</span>
-                    <FaExternalLinkAlt />
-                  </span>
-                </button>
+      <motion.div
+        initial={{ opacity: 0, y: 100, scale: 0.8 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        <BackgroundGradient>
+          <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">
+            <div className="py-8 px-10 text-center relative">
+              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:text-left">
+                <div>
+                  <h2 className="font-serif text-2xl md:text-3xl">
+                    Let's Create something amazing together.
+                  </h2>
+                  <p className="text-sm mt-2 md:text-base">
+                    Ready to bring your next project to life? Let's connect and
+                    discuss how I can help you achieve your goals.
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={handleCopy}
+                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                  >
+                    <span
+                      className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+                      style={{ animation: "spin 4s linear infinite" }}
+                    />
+                    <span className="gap-4 inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white backdrop-blur-md">
+                      <span className="font-bold text-nowrap">{buttonText}</span>
+                      <FaExternalLinkAlt />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </BackgroundGradient>
+        </BackgroundGradient>
+      </motion.div>
     </div>
   );
 }

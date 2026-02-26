@@ -1,4 +1,6 @@
+"use client";
 import { Card } from "@/components/Card";
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
 import Georgie from "@/assets/images/Georgie.jpg";
 import BL3ED from "@/assets/images/BL3ED.jpg";
@@ -45,12 +47,25 @@ export const TestimonialsSection = () => {
   return (
     <div>
       <div className="py-16 lg:py-24">
-        <SectionHeader
-          eyebrow="Happy Clients"
-          title="What Clients Say about Me"
-          description="Don't just take my word for it. See what my Clients have to say about my work."
-        />
-        <div className="mt-12 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
+        <motion.div
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <SectionHeader
+            eyebrow="Happy Clients"
+            title="What Clients Say about Me"
+            description="Don't just take my word for it. See what my Clients have to say about my work."
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", bounce: 0.5, duration: 1.2, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-12 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4"
+        >
           <div className="flex gap-8 pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
             {[...new Array(2)].fill(0).map((_, idx) => (
               <Fragment key={idx}>
@@ -82,7 +97,7 @@ export const TestimonialsSection = () => {
               </Fragment>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

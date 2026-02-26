@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import cv from "@/assets/images/cv.png";
@@ -47,25 +48,39 @@ export const AboutSection = () => {
         <div className="mt-20 flex flex-col gap-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             {/* CV Card */}
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1 cursor-pointer">
-              <div onClick={() => setIsCvOpen(true)}>
-                <PinContainer
-                  title="View my CV"
-                  className="h-[320px] w-[320px]"
-                >
-                  <CardHeader
-                    title="My CV"
-                    description="Click to view my CV."
-                  />
-                  <div className="w-40 mx-auto mt-2 md:mt-0">
-                    <Image src={cv} alt="cv" />
-                  </div>
-                </PinContainer>
-              </div>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, x: -100, rotate: -10, scale: 0.8 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+              transition={{ type: "spring", bounce: 0.4, duration: 1.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="md:col-span-2 lg:col-span-1"
+            >
+              <Card className="h-[320px] cursor-pointer">
+                <div onClick={() => setIsCvOpen(true)}>
+                  <PinContainer
+                    title="View my CV"
+                    className="h-[320px] w-[320px]"
+                  >
+                    <CardHeader
+                      title="My CV"
+                      description="Click to view my CV."
+                    />
+                    <div className="w-40 mx-auto mt-2 md:mt-0">
+                      <Image src={cv} alt="cv" />
+                    </div>
+                  </PinContainer>
+                </div>
+              </Card>
+            </motion.div>
 
             {/* Toolbox */}
-            <div className="h-[320px] md:col-span-3 lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, x: 100, rotate: 10, scale: 0.8 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
+              transition={{ type: "spring", bounce: 0.4, duration: 1.2, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="h-[320px] md:col-span-3 lg:col-span-2"
+            >
               <Card>
                 <CardHeader
                   title="My Toolbox"
@@ -80,12 +95,18 @@ export const AboutSection = () => {
                   className="m-6 animate-move-right [animation-duration:15s]"
                 />
               </Card>
-            </div>
+            </motion.div>
           </div>
 
           {/* Hobbies & Map */}
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8 mt-8">
-            <div className="h-[320px] md:col-span-3 lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 100, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: "spring", bounce: 0.4, duration: 1.2, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="h-[320px] md:col-span-3 lg:col-span-2"
+            >
               <Card>
                 <CardHeader
                   title="Beyond The Code"
@@ -101,26 +122,34 @@ export const AboutSection = () => {
                   itemsWrapperClassName=""
                 />
               </Card>
-            </div>
-            <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-              <PinContainer
-                title="I live in India"
-                className="h-[320px] w-[620px] md:w-[280px] lg:w-[320px] mb-8"
-              >
-                <Image
-                  src={MapImage}
-                  alt="Map"
-                  className="h-full w-full object-cover rounded-3xl"
-                />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 100, rotate: 5, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+              transition={{ type: "spring", bounce: 0.4, duration: 1.2, delay: 0.6 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="md:col-span-2 lg:col-span-1"
+            >
+              <Card className="h-[320px] p-0 relative">
+                <PinContainer
+                  title="I live in India"
+                  className="h-[320px] w-[620px] md:w-[280px] lg:w-[320px] mb-8"
+                >
                   <Image
-                    src={avatar}
-                    alt="Avatar"
-                    className="size-10 rounded-full"
+                    src={MapImage}
+                    alt="Map"
+                    className="h-full w-full object-cover rounded-3xl"
                   />
-                </div>
-              </PinContainer>
-            </Card>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400">
+                    <Image
+                      src={avatar}
+                      alt="Avatar"
+                      className="size-10 rounded-full"
+                    />
+                  </div>
+                </PinContainer>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </div>
