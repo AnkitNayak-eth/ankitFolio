@@ -68,6 +68,7 @@ export const BlogSection = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
           viewport={{ once: true, amount: 0.2 }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <SectionHeader
             eyebrow="Latest Blogs"
@@ -98,6 +99,7 @@ export const BlogSection = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 key={post.guid}
                 className="bg-gray-900 hover:bg-black ease-in-out shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-2"
+                style={{ willChange: 'transform, opacity' }}
               >
                 <Card className="h-full">
                   <img
@@ -138,6 +140,7 @@ export const BlogSection = () => {
             transition={{ type: "spring", bounce: 0.5, duration: 1.2, delay: 0.4 }}
             viewport={{ once: true }}
             className="flex justify-center mt-12 relative z-10"
+            style={{ willChange: 'transform, opacity' }}
           >
             <Link href="/blogs">
               <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">

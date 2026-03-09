@@ -33,6 +33,7 @@ export const Header = () => {
   const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const hash = href.split("#")[1];
+    setActiveHash(`#${hash}`);
     router.push(`/#${hash}`);
     document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -58,9 +59,8 @@ export const Header = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleHashLinkClick(e, link.href)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
+                  }`}
               >
                 {link.label}
               </a>
@@ -72,9 +72,8 @@ export const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
+                  }`}
               >
                 {link.label}
               </Link>

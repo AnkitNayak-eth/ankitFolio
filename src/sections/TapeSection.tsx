@@ -26,6 +26,7 @@ export const TapeSection = ({ direction = 'left' }) => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         className={`bg-gradient-to-r from-green-300 to-sky-400 -mx-1`}
+        style={{ willChange: 'transform, opacity' }}
       >
         <div className={`flex ${direction === 'left' ? '[mask-image:linear-gradient(to_left,transparent,black_10%,black_90%,transparent)]' : '[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'}`}>
           <div className={`flex flex-none gap-4 pr-4 py-3 ${direction === 'left' ? 'animate-move-left' : 'animate-move-right'} [animation-duration:30s]`}>

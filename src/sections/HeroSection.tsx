@@ -108,6 +108,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 10, duration: 0.5 }}
             className="border border-white overflow-hidden rounded-full w-24"
+            style={{ willChange: 'transform, opacity' }}
           >
             <Image src={avatar} className="size-max" alt="avatar" />
           </motion.div>
@@ -116,6 +117,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
             className="bg-black border border-black px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4"
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="bg-green-500 size-2.5 rounded-full relative">
               <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
@@ -130,6 +132,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
           className="max-w-2xl mx-auto"
+          style={{ willChange: 'transform, opacity' }}
         >
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide leading-loose">
             Hi, I’m Ankit 👋
@@ -147,6 +150,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.6 }}
           className="flex flex-col items-center justify-center"
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
             <button

@@ -81,6 +81,7 @@ export function CallToAction() {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
         viewport={{ once: true, amount: 0.5 }}
+        style={{ willChange: 'transform, opacity' }}
       >
         <BackgroundGradient>
           <div className="rounded-3xl bg-gray-900 hover:bg-black transition duration-700 ease-in-out relative z-50">

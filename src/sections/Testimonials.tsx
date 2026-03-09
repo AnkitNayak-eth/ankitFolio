@@ -52,6 +52,7 @@ export const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: "spring", bounce: 0.5, duration: 1.2 }}
           viewport={{ once: true, amount: 0.5 }}
+          style={{ willChange: 'transform, opacity' }}
         >
           <SectionHeader
             eyebrow="Happy Clients"
@@ -65,6 +66,7 @@ export const TestimonialsSection = () => {
           transition={{ type: "spring", bounce: 0.5, duration: 1.2, delay: 0.2 }}
           viewport={{ once: true, amount: 0.2 }}
           className="mt-12 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4"
+          style={{ willChange: 'transform, opacity' }}
         >
           <div className="flex gap-8 pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
             {[...new Array(2)].fill(0).map((_, idx) => (
