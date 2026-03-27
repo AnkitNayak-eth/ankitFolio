@@ -15,6 +15,7 @@ import { FaLinux } from "react-icons/fa";
 import { FlipWords } from "@/components/flip-words";
 import { footerLinks } from "./Footer";
 import { useState } from "react";
+import LightRays from "@/components/LightRays";
 
 export const HeroSection = () => {
   const words = [
@@ -46,8 +47,25 @@ export const HeroSection = () => {
 
   return (
     <div className="py-32 md:py-48 lg:py-60 relative overflow-x-clip" id="home">
+      <div className="absolute inset-0 top-0 left-0 w-full h-[800px] z-0">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={3.5}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0}
+          distortion={0}
+          className="custom-rays opacity-90"
+          pulsating={false}
+          fadeDistance={1}
+          saturation={1}
+        />
+      </div>
 
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] lg:mt-32">
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] lg:mt-32 z-0 pointer-events-none">
         <div className="size-[700px] hero-ring"></div>
         <div className="size-[900px] hero-ring"></div>
         <div className="size-[1100px] hero-ring"></div>
@@ -110,7 +128,7 @@ export const HeroSection = () => {
             className="border border-white overflow-hidden rounded-full w-24"
             style={{ willChange: 'transform, opacity' }}
           >
-            <Image src={avatar} className="size-max" alt="avatar" />
+            <Image src={avatar} className="size-max" alt="avatar" unoptimized priority={false} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: -50, scale: 0.5 }}

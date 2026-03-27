@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 
 export function CallToAction() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const pointerInteracting = useRef<number | null>(null);
+  const pointerInteractionMovement = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,15 +25,15 @@ export function CallToAction() {
     observer.observe(canvas);
 
     const globe = createGlobe(canvas, {
-      devicePixelRatio: 1.5,
-      width: 600,
-      height: 600,
+      devicePixelRatio: 1,
+      width: 400,
+      height: 400,
       phi: 0,
       theta: 0,
       dark: 1,
       diffuse: 1,
       scale: 1,
-      mapSamples: 1000,
+      mapSamples: 500,
       mapBrightness: 5,
       baseColor: [0.3, 0.3, 0.3],
       markerColor: [0, 1, 0],
@@ -39,8 +41,11 @@ export function CallToAction() {
       markers: [{ location: [20.5937, 78.9629], size: 0.1 }],
       onRender: (state: any) => {
         if (!isVisible) return;
-        phi += 0.009;
-        state.phi = phi;
+        
+        if (pointerInteracting.current === null) {
+          phi += 0.005;
+        }
+        state.phi = phi + pointerInteractionMovement.current;
       }
     });
 
@@ -67,12 +72,32 @@ export function CallToAction() {
     >
       <canvas
         ref={canvasRef}
-        width={600}
-        height={600}
+        width={400}
+        height={400}
         style={{
           maxWidth: "400px",
           maxHeight: "400px",
-          transform: "translateY(180px)"
+          transform: "translateY(180px)",
+          cursor: "grab",
+        }}
+        onPointerDown={(e) => {
+          pointerInteracting.current =
+            e.clientX - pointerInteractionMovement.current;
+          if (canvasRef.current) canvasRef.current.style.cursor = "grabbing";
+        }}
+        onPointerUp={() => {
+          pointerInteracting.current = null;
+          if (canvasRef.current) canvasRef.current.style.cursor = "grab";
+        }}
+        onPointerOut={() => {
+          pointerInteracting.current = null;
+          if (canvasRef.current) canvasRef.current.style.cursor = "grab";
+        }}
+        onPointerMove={(e) => {
+          if (pointerInteracting.current !== null) {
+            const delta = e.clientX - pointerInteracting.current;
+            pointerInteractionMovement.current = delta * 0.01;
+          }
         }}
       ></canvas>
 

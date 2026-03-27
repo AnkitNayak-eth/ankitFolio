@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
+import GooeyNav from "@/components/GooeyNav";
+
 export const Header = () => {
   const [activeHash, setActiveHash] = useState("");
   const pathname = usePathname(); // Get the current route path
@@ -30,14 +32,6 @@ export const Header = () => {
     setActiveHash(window.location.hash);
   }, [pathname]);
 
-  const handleHashLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const hash = href.split("#")[1];
-    setActiveHash(`#${hash}`);
-    router.push(`/#${hash}`);
-    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/#about", label: "About" },
@@ -46,41 +40,41 @@ export const Header = () => {
     { href: "/#contact", label: "Contact" },
   ];
 
+  // Determine initial active index based on current path/hash
+  let initialIndex = 0;
+  if (pathname === "/blogs") initialIndex = 3;
+  else if (activeHash === "#about") initialIndex = 1;
+  else if (activeHash === "#project") initialIndex = 2;
+  else if (activeHash === "#contact") initialIndex = 4;
+
+  const handleItemClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("/#") || href.startsWith("#")) {
+      e.preventDefault();
+      const hash = href.split("#")[1];
+      setActiveHash(`#${hash}`);
+      router.push(`/#${hash}`);
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      setActiveHash("");
+      router.push(href);
+    }
+  };
+
   return (
-    <div className="flex justify-center items-center fixed top-10 w-full z-50">
-      <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur">
-        {navLinks.map((link) => {
-          if (link.href.startsWith("/#")) {
-            // Use <a> for anchor links
-            const hash = `#${link.href.split("#")[1]}`;
-            const isActive = activeHash === hash;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleHashLinkClick(e, link.href)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
-                  }`}
-              >
-                {link.label}
-              </a>
-            );
-          } else {
-            // Use <Link> for internal routes
-            const isActive = pathname === link.href && !activeHash; // Home link is only active if there's no hash
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isActive ? "bg-white text-gray-900" : "text-white hover:bg-white/20"
-                  }`}
-              >
-                {link.label}
-              </Link>
-            );
-          }
-        })}
-      </nav>
+    <div className="flex justify-center items-center fixed top-10 w-full z-50 pointer-events-none">
+      <div className="pointer-events-auto bg-white/10 backdrop-blur rounded-full border border-white/15">
+        <GooeyNav
+          items={navLinks}
+          particleCount={15}
+          particleDistances={[90, 10]}
+          particleR={100}
+          initialActiveIndex={initialIndex}
+          animationTime={600}
+          timeVariance={300}
+          colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+          onItemClick={handleItemClick}
+        />
+      </div>
     </div>
   );
 };

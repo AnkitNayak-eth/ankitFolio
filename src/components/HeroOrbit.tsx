@@ -9,7 +9,7 @@ export const HeroOrbit = ({
   return (
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-20">
 
-      <div className="animate-spin" style={{ animationDuration: orbitDuration }}>
+      <div className="animate-spin" style={{ animationDuration: orbitDuration, willChange: 'transform' }}>
         <div
           style={{
             height: `${size}px`,
@@ -18,7 +18,7 @@ export const HeroOrbit = ({
           }}
         >
 
-          <div className="inline-flex animate-spin" style={{ animationDuration: "10s" }}>
+          <div className="inline-flex animate-spin" style={{ animationDuration: "10s", willChange: 'transform' }}>
             {children}
           </div>
         </div>

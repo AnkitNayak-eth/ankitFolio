@@ -135,7 +135,7 @@ export const ProjectsSection = () => {
             <div
               key={project.title}
               className="after:pointer-events-none sticky transition-all duration-300 hover:scale-[1.01]"
-              style={{ top: `calc(64px + ${projectIndex * 60}px)` }}
+              style={{ top: `calc(64px + ${projectIndex * 60}px)`, willChange: 'transform' }}
             >
               <Card>
                 <div className="px-6 pt-6 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-300">
